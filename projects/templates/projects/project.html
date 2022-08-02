@@ -1,0 +1,21 @@
+{% extends 'projects/base.html' %}
+
+{% block content %}
+  <p>Project: {{ project }}</p>
+
+  <p>Tasks: </p>
+  <p>
+    <a href="{% url 'projects:new_task' project.id %}">Add new task</a>
+  </p>
+  <ul>
+    {% for task in tasks %}
+    <li>
+        <!--<p>{{ task.creation_date|date:'M d, Y H:i' }}</p>-->
+        <p>{{ task.task_name|linebreaks }}</p>
+    </li>
+    {% empty %}
+    <li>There are no entries for this project yet.</li>
+    {% endfor %}
+  </ul> 
+
+{% endblock content %}
