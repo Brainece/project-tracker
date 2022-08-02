@@ -21,7 +21,7 @@ def projects(request):
 def project(request, project_id):
     """Show a single project and list all its entries"""
     project = Project.objects.get(id=project_id)
-    if topic.owner != request.user:
+    if project.owner != request.user:
         raise Http404
     tasks = project.task_set.order_by("id")
     context = {

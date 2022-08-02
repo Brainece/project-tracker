@@ -1,19 +1,21 @@
 {% extends 'projects/base.html' %}
+{%block page_header%}
+  <h1>Projects</h1>
+{%endblock page_header%}
 
 {%block content%}
-<p>Projects</p>
 
 <ul>
     {% for project in projects %}
-      <li>
+      <li><h3>
         <a href="{% url 'projects:project' project.id %}"> {{ project }}</a>
-      </li>
+      </h3></li>
     {% empty %}
      <li>No projects have been added yet</li>
     {% endfor %}
 </ul>
 
-<a href="{% url 'projects:new_project' %}">Add a new project</a>
+<h3><a href="{% url 'projects:new_project' %}">Add a new project</a></h3>
 
 
 {% endblock content %}

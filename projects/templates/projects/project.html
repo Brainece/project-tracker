@@ -1,8 +1,11 @@
 {% extends 'projects/base.html' %}
 
-{% block content %}
+{% block page_header%}
   <p>Project: {{ project }}</p>
+{%endblock page_header%}
 
+{% block content %}
+ 
   <p>Tasks: </p>
   <p>
     <a href="{% url 'projects:new_task' project.id %}">Add new task</a>
